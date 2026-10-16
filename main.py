@@ -128,13 +128,13 @@ summary_df = df.groupby('묶음').agg(
     편수=('movieNm', 'count'),
     스크린_수_평균=('스크린 수', 'mean'),
     누적_관객_평균=('누적 관객', 'mean'),
-    10위권_일수_평균=('10위권 일수', 'mean'),
+    상위10위권_일수_평균=('10위권 일수', 'mean'),
     롱런_지수_평균=('롱런 지수', 'mean')
 ).reindex(cluster_order).reset_index()
 
 summary_df.columns = ['묶음', '편수', '스크린 수 평균', '누적 관객 평균', '10위권 일수 평균', '롱런 지수 평균']
 
-# 보기 편하게 반올림 처리
+# 반올림 처리
 summary_df['스크린 수 평균'] = summary_df['스크린 수 평균'].round(1)
 summary_df['누적 관객 평균'] = summary_df['누적 관객 평균'].round(1)
 summary_df['10위권 일수 평균'] = summary_df['10위권 일수 평균'].round(1)
